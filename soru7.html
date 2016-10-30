@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p>Gün</p>
+<script type="text/javascript">
+
+var gunOlustur = function()
+{
+    var select1 = document.createElement("select"),
+      gun = 31;
+    select1.setAttribute("id","1");
+
+    for(var i = 0; i < 31; i++)
+    {  
+        var option = document.createElement("option");
+        select1.appendChild(option).text = gun;
+        select1.appendChild(option).value = gun;
+        gun += -1
+    }
+
+    document.body.appendChild(select1);
+}
+
+gunOlustur();
+</script>	
+
+<p>Ay</p>
+<script type="text/javascript">
+	var ayOlustur = function() 
+{
+	var select2 = document.createElement("select"),
+	ay = 11;
+	select2.setAttribute("id","2");
+
+	for (var i = 0; i < 12; i++) 
+	{
+		var option = document.createElement("option");
+		select2.appendChild(option).text = ay+1;
+		select2.appendChild(option).value = ay;
+		ay += -1
+	}
+	document.body.appendChild(select2);
+}
+
+ayOlustur();
+</script>	
+
+
+<p>Yýl</p>
+	<script type="text/javascript">
+
+var yilOlustur = function()
+{
+    var select3 = document.createElement("select");
+    select3.setAttribute("id","3");
+        year = new Date().getFullYear();
+
+    for(var i = 0; i < 110; i++)
+    {  
+        var option = document.createElement("option");
+        select3.appendChild(option).text = year;
+        select3.appendChild(option).value = year;
+        year += -1
+    }
+
+    document.body.appendChild(select3);
+}
+
+yilOlustur();
+
+</script>
+
+
+
+<script type="text/javascript">
+	function hesapla() {
+		var seciliTarih = new Date();
+	var gunBul = document.getElementById("1");
+	var seciliGun = gunBul.options[gunBul.selectedIndex].value;
+	console.log(seciliGun);
+	var ayBul = document.getElementById("2");
+	var seciliAy = ayBul.options[ayBul.selectedIndex].value;
+	console.log(seciliAy);
+	var yilBul = document.getElementById("3");
+	var seciliYil = yilBul.options[yilBul.selectedIndex].value;
+	console.log(seciliYil);
+	seciliTarih.setDate(seciliGun);
+	seciliTarih.setMonth(seciliAy);
+	seciliTarih.setYear(seciliYil);
+	var simdikiTarih = new Date();
+	
+	var fark = Math.abs(seciliTarih.getTime() - simdikiTarih.getTime());
+	var gecenGun = Math.ceil(fark / (1000 * 3600 * 24)); 
+	document.getElementById("yaz").innerHTML = "Seçtiðiniz tarihten bugüne kadar "+ gecenGun  +" gün geçti.";
+	
+	}
+</script>
+<br><br>
+<button type="button" onclick="hesapla();">Þu anki tarihe kadar geçen günleri hesapla</button>
+<br><br>
+<p id="yaz"></p>
+
+
+</body>
+</html>

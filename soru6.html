@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div id="div1">
+<p>Gün</p>
+<script type="text/javascript">
+
+var gunOlustur = function()
+{
+    var select = document.createElement("select"),
+      gun = 31;
+
+    for(var i = 0; i < 31; i++)
+    {  
+        var option = document.createElement("option");
+        select.appendChild(option).text = gun;
+        select.appendChild(option).value = gun;
+        gun += -1
+    }
+
+    document.body.appendChild(select);
+}
+
+gunOlustur();
+</script> 
+</div>
+<div id="div2">
+<p>Ay</p>
+<script type="text/javascript">
+  var ayOlustur = function() 
+{
+  var select = document.createElement("select"),
+  ay = 12;
+
+  for (var i = 0; i < 12; i++) 
+  {
+    var option = document.createElement("option");
+    select.appendChild(option).text = ay;
+    select.appendChild(option).value = ay;
+    ay += -1
+  }
+  document.body.appendChild(select);
+}
+
+ayOlustur();
+</script> 
+</div>
+<div id="div3">
+<p>Yýl</p>
+  <script type="text/javascript">
+
+var yilOlustur = function()
+{
+    var select3 = document.createElement("select");
+    select3.setAttribute("id","3");
+        year = new Date().getFullYear();
+
+    for(var i = 0; i < 110; i++)
+    {  
+        var option = document.createElement("option");
+        select3.appendChild(option).text = year;
+        select3.appendChild(option).value = year;
+        year += -1
+    }
+
+    document.body.appendChild(select3);
+}
+
+yilOlustur();
+
+
+</script>
+
+</div>
+
+
+
+</body>
+</html>
